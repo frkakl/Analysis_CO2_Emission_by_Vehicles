@@ -86,10 +86,8 @@ SET Transmission = CASE WHEN Transmission = 'AS6' THEN 'Auto Select Shift 6 Gear
 WITH RowNumCTE AS(
 Select *,
 	ROW_NUMBER() OVER (
-	PARTITION BY Brand,
-				 Model
-				 ORDER BY Brand
-				 ) row_num
+	PARTITION BY Brand,Model
+	ORDER BY Brand) row_num
 
 From Vehicles_CO2_Emission..CO2_Emissions
 )
